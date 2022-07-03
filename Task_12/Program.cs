@@ -10,6 +10,7 @@ namespace CustomBinarySerialization
             var patentSearchService = programServicesProvider.GetSearchService<Patent>();
             var bookSearchService = programServicesProvider.GetSearchService<Book>();
             var localizedBookSearchService = programServicesProvider.GetSearchService<LocalizedBook>();
+            var journalSearchService = programServicesProvider.GetSearchService<Journal>();
 
             var patents = patentSearchService.SearchLibraryDocumentsByType();
 
@@ -40,6 +41,17 @@ namespace CustomBinarySerialization
             foreach (var localizedBook in localizedBooks)
             {
                 Console.WriteLine(localizedBook.Title);
+            }
+
+            Console.WriteLine("_____________________________________");
+
+            var journals = journalSearchService.SearchLibraryDocumentsByType();
+
+            Console.WriteLine("Patents: ");
+
+            foreach (var journal in journals)
+            {
+                Console.WriteLine(journal.Title);
             }
         }
     }
